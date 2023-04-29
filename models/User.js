@@ -1,0 +1,71 @@
+const mongoose = require('mongoose');
+
+const UserSchema = new mongoose.Schema({
+    username:{
+        type:String, 
+        required:true, 
+        min:3,  
+        max:20,
+        unique:true,
+    },
+    email:{
+        type:String,
+        required:true,
+        max:50,
+        unique:true, 
+    },
+    password:{
+        type:String,
+       required:true,
+        min:6,
+    },
+    brandPicture:{
+        type:String,
+        default:'https://www.shutterstock.com/image-photo/bubble-speech-cut-out-phrase-260nw-369907355.jpg',
+    },
+    phone:{
+        type:Number,
+    },
+    address:{
+        type:String,
+    }, 
+    account:{
+        type:String,
+    }, 
+    isAdmin:{
+        type:Boolean,
+        default:false,
+    },
+    verifiedUser:{
+        type:Boolean,
+        default:false,
+    },
+    gameParticipant:{
+        type:Boolean,
+        default:false,
+    },
+    choosenProductId:{
+        type:String,
+    },
+    choosenProductPrice:{
+        type:Number,
+    },
+    choosenProductName:{
+        type:String,
+    },
+   screenshot:{
+        type:String,
+    },
+    validForGame:{
+        type:Boolean,
+        default:false,
+    },
+    wonGame:{
+        type:Boolean,
+        default:false,
+    },
+},
+{timestamps:true}
+);
+
+module.exports = mongoose.model('User', UserSchema);
