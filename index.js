@@ -14,6 +14,14 @@ const chatsRoute = require('./routes/chats');
 const gamechatsRoute = require('./routes/gamechats');
 
 const port = process.env.PORT || 5000;
+
+// add this below app.use("/", routes) to make index.html a static file
+app.route('/show')
+  .get(function (req, res) {
+    res.sendFile(process.cwd() + '/index.html');
+});
+
+
 //use .env
 dotenv.config();
 //connect to database
