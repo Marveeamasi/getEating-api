@@ -13,6 +13,7 @@ const categoriesRoute = require('./routes/categories');
 const chatsRoute = require('./routes/chats');
 const gamechatsRoute = require('./routes/gamechats');
 
+const port = process.env.PORT || 5000;
 //use .env
 dotenv.config();
 //connect to database
@@ -42,6 +43,6 @@ app.use('/api/categories', categoriesRoute);
 app.use('/api/chats', chatsRoute);
 app.use('/api/gamechats', gamechatsRoute);
 //run server
-app.listen(5000, ()=>{
+app.listen(port, ()=>{
  console.log('Backend server running!');
 });  
