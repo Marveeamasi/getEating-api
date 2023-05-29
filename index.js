@@ -12,6 +12,7 @@ const blogsRoute = require('./routes/blogs');
 const categoriesRoute = require('./routes/categories');
 const chatsRoute = require('./routes/chats');
 const gamechatsRoute = require('./routes/gamechats');
+const userModel = require("./models/details");
 
 const port = process.env.PORT || 5000;
 
@@ -19,6 +20,11 @@ const port = process.env.PORT || 5000;
 app.route('/show')
   .get(function (req, res) {
     res.sendFile(process.cwd() + '/index.html');
+});
+
+app.get('/details', async (req, res) => {
+    const user = await userModel.find();
+    res.send(user);
 });
 
 
