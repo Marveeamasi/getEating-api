@@ -17,7 +17,7 @@ const Post = require('./models/Item');
 const port = process.env.PORT || 5000;
 
 // add this below app.use("/", routes) to make index.html a static file
-app.route('/show')
+app.route('/shows')
   .get(function (req, res) {
     res.sendFile(process.cwd() + '/index.html');
 });
