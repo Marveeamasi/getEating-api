@@ -32,8 +32,10 @@ app.get('/details', async (req, res) => {
 dotenv.config();
 //connect to database
 mongoose.set('strictQuery', false);
-mongoose.connect
-(process.env.MONGO_URL,
+mongoose.connect(process.env.MONGO_URL,  {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    }
 ) 
 .then(()=>
  console.log('mongo connected')
