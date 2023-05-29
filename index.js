@@ -12,7 +12,7 @@ const blogsRoute = require('./routes/blogs');
 const categoriesRoute = require('./routes/categories');
 const chatsRoute = require('./routes/chats');
 const gamechatsRoute = require('./routes/gamechats');
-const userModel = require("./models/details");
+const Post = require('../models/Item');
 
 const port = process.env.PORT || 5000;
 
@@ -23,8 +23,8 @@ app.route('/show')
 });
 
 app.get('/details', async (req, res) => {
-    const user = await userModel.find();
-    res.send(user);
+    const post = await Post.find();
+    res.send(post);
 });
 
 
