@@ -12,7 +12,7 @@ const blogsRoute = require('./routes/blogs');
 const categoriesRoute = require('./routes/categories');
 const chatsRoute = require('./routes/chats');
 const gamechatsRoute = require('./routes/gamechats');
-const Post = require('../models/Item');
+const Post = require('./models/Item');
 
 const port = process.env.PORT || 5000;
 
