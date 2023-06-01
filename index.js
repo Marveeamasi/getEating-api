@@ -33,7 +33,7 @@ dotenv.config();
 //connect to database
 mongoose.set('strictQuery', false);
 mongoose.connect
-(process.env.MONGO_URL,
+("mongodb+srv://vee:vee120@cluster0.zxaeg.mongodb.net/shop?retryWrites=true&w=majority" ,
 ) 
 .then(()=>
  console.log('mongo connected')
