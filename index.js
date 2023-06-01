@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const helmet = require('helmet');
+const compression = require('compression');
 const morgan = require('morgan');
 const authRoute = require('./routes/auth');
 const usersRoute = require('./routes/users');
@@ -63,6 +64,7 @@ app.use(express.urlencoded({
     extended: true
 }));
 app.use(helmet());
+app.use(compression());
 app.use(morgan('common'));
 app.use('/api/auth', authRoute);
 app.use('/api/users', usersRoute);
