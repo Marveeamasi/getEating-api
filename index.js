@@ -30,19 +30,33 @@ app.get('/details', async (req, res) => {
 
 //use .env
 dotenv.config();
+
 //connect to database
 mongoose.set('strictQuery', false);
-mongoose.connect(process.env.MONGO_URL,  {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    }
-) 
+mongoose.connect("mongodb+srv://vee:vee120@cluster0.zxaeg.mongodb.net/shop?retryWrites=true&w=majority",
+  {
+    useFindAndModify: false,
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },
+    replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },
+  },
+  function (err) {
+    if (err) return console.log("Error: ", err);
+    console.log(
+      "MongoDB Connection -- Ready state is:",
+      mongoose.connection.readyState
+    );
+  }
+)
 .then(()=>
  console.log('mongo connected')
  )
  .catch((err)=>{
     console.log(err)
 });
+
  //middle ware
 app.use(express.json());
 app.use(express.urlencoded({
