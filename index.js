@@ -13,8 +13,16 @@ const categoriesRoute = require('./routes/categories');
 const chatsRoute = require('./routes/chats');
 const gamechatsRoute = require('./routes/gamechats');
 const Post = require('./models/Item');
+const cors = require('cors');
+const compression = require('compression');
 
 const port = process.env.PORT || 5000;
+
+const corsOptions = {
+    origin: 'http://localhost:3000',
+    credentials: true,
+};
+app.use(cors(corsOptions));
 
 // add this below app.use("/", routes) to make index.html a static file
 app.route('/shows')
@@ -48,6 +56,7 @@ app.use(express.urlencoded({
     extended: true
 }));
 app.use(helmet());
+app.use(compression());
 app.use(morgan('common'));
 app.use('/api/auth', authRoute);
 app.use('/api/users', usersRoute);
