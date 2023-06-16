@@ -55,7 +55,7 @@ router.delete('/:id', async(req,res)=>{
     
  
 //GET CHAT
-router.get('/:id',async (req, res)=>{
+router.get('/:id/game',async (req, res)=>{
     try{
         const post = await Post.findById(req.params.id);
         res.status(200).json(post);
