@@ -84,7 +84,7 @@ router.get('/', async(req,res)=>{
 
 
 //GET INFOS
-router.get('/', async(req,res)=>{
+router.get('/timer', async(req,res)=>{
     try{
 
       const  infos = await Info.find();
@@ -95,7 +95,7 @@ router.get('/', async(req,res)=>{
 })
 
 //GET INFO
-router.get('/:id',async (req, res)=>{
+router.get('/timer/:id',async (req, res)=>{
     try{
         const info = await Info.findById(req.params.id);
         res.status(200).json(info);
@@ -105,7 +105,7 @@ router.get('/:id',async (req, res)=>{
 })
  
 //DELETE INFO
-router.delete('/:id', async(req,res)=>{
+router.delete('/timer/:id', async(req,res)=>{
     try{
         const info = await Info.findById(req.params.id);
            await info.deleteOne();
@@ -116,7 +116,7 @@ router.delete('/:id', async(req,res)=>{
     });
     
  //CREATE INFO
-router.post('/', async(req, res)=>{
+router.post('/timer', async(req, res)=>{
     const newPost = new Info(req.body)
     try{
         const savedPost = await newPost.save();
