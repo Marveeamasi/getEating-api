@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const Post = require('../models/GameChat');
-const { count } = require('../models/Timer');
 const Info = require('../models/Timer');
 
 //CREATE CHAT
@@ -86,7 +85,6 @@ router.get('/', async(req,res)=>{
 //GET INFOS
 router.get('/timer', async(req,res)=>{
     try{
-
       const  infos = await Info.find();
       res.status(200).json(infos);
     }catch(err){
