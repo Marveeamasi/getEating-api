@@ -85,7 +85,7 @@ router.get('/', async(req,res)=>{
 //GET INFOS
 router.get('/timer', async(req,res)=>{
     try{
-      const  infos = await Info.find();
+      const infos = await Info.find();
       res.status(200).json(infos);
     }catch(err){
         res.status(500).json(err)
