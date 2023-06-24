@@ -19,7 +19,7 @@ const compression = require('compression');
 const port = process.env.PORT || 5000;
 
 const corsOptions = {
-    origin: 'https://648d5189deb93b50c487b207--singular-fairy-2311f5.netlify.app',
+    origin: 'https://64969582f4f5742f799b5a2c--geteatingapp.netlify.app/',
     credentials: true,
 };
 app.use(cors(corsOptions));
