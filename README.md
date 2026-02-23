@@ -1,2 +1,3 @@
 # getEating-api
-my restful api
+
+Info about this api is private
